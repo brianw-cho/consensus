@@ -1,1 +1,26 @@
+/* Main Colors
+  - Biege: #E9DAC4
+  - Aquamarine: #749EB2
+  - Cognac: #BD8E83
+*/
 
+.body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  background-color: #E9DAC4;
+}
+
+.header {
+  width: 100%;
+  padding: 15px;
+  font-size: 20px;
+}
