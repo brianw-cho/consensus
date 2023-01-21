@@ -12,7 +12,9 @@ const Button = ({ onClick, child, width, height }: ButtonProps) => {
   return (
     <div 
       className="btn-wrapper"
-      style={{ width: width, height: height }}>
+      style={{ width: width, height: height }}
+      onClick={onClick}
+      >
       {child}
     </div>
   );

@@ -4,11 +4,11 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 15px;
   transition: background-color;
-  transition-duration: 150ms;
+  transition-duration: 100ms;
 }
 
 .btn-wrapper:hover {
-  background-color: #d1d1d1;
+  background-color: #aaaaaa79;
 }
