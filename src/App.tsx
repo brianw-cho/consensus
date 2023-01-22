@@ -4,10 +4,12 @@ import { BiArrowBack } from 'react-icons/bi';
 import Button from './components/button/Button';
 import ReviewService from './services/ReviewsService';
 import SearchPage from './components/pages/SearchPage';
+import CohereService from './services/CohereService';
 
 function App() {
   const reviewService = ReviewService();
   const [currentPage, setCurrentPage] = useState(0);
+  const cohereSerivce = CohereService();
 
   const pages = [<SearchPage />];
 
@@ -17,6 +19,7 @@ function App() {
         <div className="header">
           <Button 
             onClick={async () => {
+              console.log(cohereSerivce.getConfidenceLevels());
 
               const _locations = await reviewService.getLocation("Ritz-hotel");
               console.log(_locations)
