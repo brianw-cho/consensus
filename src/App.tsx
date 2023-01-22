@@ -7,6 +7,7 @@ import SearchPage from './components/pages/SearchPage';
 import PositivePage from './components/pages/PositivePage';
 import Location from './models/Location';
 import CohereService from './services/CohereService';
+import KeywordService from './services/KeywordsService';
 
 function App() {
   const reviewService = ReviewService();
@@ -30,9 +31,12 @@ function App() {
               console.log(_locations)
 
               const service = await cohereService.getConfidenceLevels();
-              
 
               console.log(service)
+
+              const keywords = await KeywordService().getKeywords(reviewService.getReviewsFromID(_locations[0]));
+
+
             }}
             child={<BiArrowBack />}
             width="30px"
