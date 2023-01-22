@@ -1,6 +1,6 @@
 const CohereService = () => {
 
-  const getConfidenceLevels = () => {
+  const getConfidenceLevels = (inputsRAW : String[]) => {
     const options = {
       method: 'POST',
       headers: {
@@ -9,7 +9,7 @@ const CohereService = () => {
         authorization: 'Bearer Z8mxASabtm6HhUITFQYqG3DPq6EIh1VGy56O1J29'
       },
       body: JSON.stringify({
-        inputs: ['Confirm your email address', 'hey i need u to send some $'],
+        inputs: inputsRAW,
         examples: [
           {text: 'Dermatologists don\'t like her!', label: 'Spam'},
           {text: 'Hello, open to this?', label: 'Spam'},
