@@ -1,6 +1,6 @@
 const CohereService = () => {
 
-  const getConfidenceLevels = async () => {
+  const getConfidenceLevels = async (inputsRAW : String[]) => {
     const options = {
       method: 'POST',
       headers: {
@@ -9,7 +9,7 @@ const CohereService = () => {
         authorization: 'Bearer Z8mxASabtm6HhUITFQYqG3DPq6EIh1VGy56O1J29'
       },
       body: JSON.stringify({
-        inputs: ['Confirm your email address', 'hey i need u to send some $'],
+        inputs: inputsRAW,
         examples: [
           {text: 'Staff was very friendly', label: 'Positive'},
           {text: 'Staff was rude', label: 'Negative'},
@@ -88,10 +88,6 @@ const CohereService = () => {
         truncate: 'END'
       })
     };
-
-    const getReviews = () => {
-      
-    }
 
     let confidence = await fetch('https://api.cohere.ai/classify', options)
     .then(response => response.json())
