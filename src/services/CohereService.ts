@@ -12,13 +12,13 @@ const CohereService = () => {
       body: JSON.stringify({
         inputs: inputsRAW,
         examples: [
-          {text: 'Staff was very friendly', label: 'Positive'},
+          {text: 'Staff was friendly', label: 'Positive'},
           {text: 'Staff was rude', label: 'Negative'},
           {text: 'Location is perfect', label: 'Positive'},
-          {text: 'Location is a bit far from attractions', label: 'Negative'},
+          {text: 'Location is far from attractions', label: 'Negative'},
           {text: 'The service was excellent', label: 'Positive'},
-          {text: 'the room service was subpar', label: 'Negative'},
-          {text: 'the service was superb', label: 'Positive'},
+          {text: 'The service was subpar', label: 'Negative'},
+          {text: 'The service was amazing', label: 'Positive'},
           {text: 'The beds are comfortable', label: 'Positive'},
           {text: 'The bedding was unconfortable', label: 'Negative'},
           {text: 'The caretakers are very well mannered', label: 'Positive'},
@@ -91,7 +91,7 @@ const CohereService = () => {
 
     fetch('https://api.cohere.ai/classify', options)
     .then(response => response.json())
-    .then(response => console.log(response["classifications"][0]["confidence"]))
+    .then(response => console.log(response["classifications"][0]["prediction"]))
     .catch(err => console.error(err));
   };
 
@@ -187,7 +187,7 @@ const CohereService = () => {
 
     fetch('https://api.cohere.ai/classify', options)
     .then(response => response.json())
-    .then(response => console.log(response["classifications"][0]["confidence"]))
+    .then(response => console.log(response["classifications"][0]["prediction"]))
     .catch(err => console.error(err));
   };
 
