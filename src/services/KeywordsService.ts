@@ -11,6 +11,7 @@ const KeywordsService = () => {
                 language: "english",
                 remove_digits: true,
                 return_changed_case: true,
+                return_chained_words: true,
                 remove_duplicates: false
             });
             reviews_aggregate[counter] = extraction_result
