@@ -2,7 +2,7 @@ const keyword_extractor = require("keyword-extractor");
 
 const KeywordsService = () => {
 
-    const getKeywords = (reviews: string[]) => {
+    const getKeywords = async (reviews: string[]) => {
         for (let i = 0; i < reviews.length; i++) {
             let review = reviews[i];
             let extraction_result = keyword_extractor.extract(review, {
@@ -18,8 +18,7 @@ const KeywordsService = () => {
     
   }
   return {
-    getKeywords
-  
-};
+    getKeywords 
+}
 }
   export default KeywordsService;

@@ -34,8 +34,12 @@ function App() {
 
               console.log(service)
 
-              const keywords = await KeywordService().getKeywords(reviewService.getReviewsFromID(_locations[0]));
+              const _reviews = await reviewService.getReviewsFromID(_locations[0])
 
+              const _keywords = await KeywordService().getKeywords(_reviews);
+              console.log(_keywords)
+
+            
 
             }}
             child={<BiArrowBack />}
