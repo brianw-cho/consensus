@@ -6,9 +6,11 @@ import ReviewService from './services/ReviewsService';
 import SearchPage from './components/pages/SearchPage';
 import PositivePage from './components/pages/PositivePage';
 import Location from './models/Location';
+import CohereService from './services/CohereService';
 
 function App() {
   const reviewService = ReviewService();
+  const cohereService = CohereService();
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedLocation, setSelectedLocation] = useState<Location>({title: "", data_id: "", thumbnail: "", address: "", rating: 0, numReviews: 0, website: ""});
 
@@ -26,6 +28,10 @@ function App() {
 
               const _locations = await reviewService.getLocation("Ritz-hotel");
               console.log(_locations)
+
+              const service = await cohereService.getConfidenceLevels();
+
+              console.log(service)
             }}
             child={<BiArrowBack />}
             width="30px"
