@@ -30,6 +30,7 @@ function App() {
               console.log(_locations)
 
               const service = await cohereService.getConfidenceLevels();
+              
 
               console.log(service)
             }}

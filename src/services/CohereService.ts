@@ -104,10 +104,19 @@ const CohereService = () => {
     return confidence;
   };
 
+  const checkConfidenceLevels = (confidence : number) => {
+    if (confidence > 0.85) {
+      return "Positive";
+    } else {
+      return "Negative";
+    }
   
+  }
+
 
   return {
-    getConfidenceLevels
+    getConfidenceLevels,
+    checkConfidenceLevels
   };
 }
 
