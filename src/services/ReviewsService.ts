@@ -105,9 +105,22 @@ const ReviewService = () => {
   
   }
 
+  const filterReviews = (reviews : String[]) => {
+    for(let i = 0; i < reviews.length; i++){
+      if(reviews[i] == undefined){
+        reviews[i] = "Above Average"
+      }
+    }
+  return reviews
+  
+  }
+
+
+
   return {
     getLocation,
-    getReviewsFromID
+    getReviewsFromID,
+    filterReviews
   };
 };
 

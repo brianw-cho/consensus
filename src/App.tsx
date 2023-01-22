@@ -29,16 +29,15 @@ function App() {
 
               const _locations = await reviewService.getLocation("Ritz-hotel");
               console.log(_locations)
-
-              const service = await cohereService.getConfidenceLevels();
-
-              console.log(service)
-
               const _reviews = await reviewService.getReviewsFromID(_locations[0])
+
+              const _filtered_reviews = reviewService.filterReviews(_reviews)
 
               const _keywords = await KeywordService().getKeywords(_reviews);
               console.log(_keywords)
 
+              const _cohere = await cohereService.getConfidenceLevels(_filtered_reviews)
+              console.log(_cohere)
             
 
             }}
