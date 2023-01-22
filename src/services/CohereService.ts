@@ -187,9 +187,11 @@ const CohereService = () => {
 
     fetch('https://api.cohere.ai/classify', options)
     .then(response => response.json())
-    .then(response => console.log(response["classifications"][0]["confidence"]))
+    .then(response => console.log(response["classifications"][0]["prediction"]))
     .catch(err => console.error(err));
   };
+
+
 
   return {
     getConfidenceLevels,

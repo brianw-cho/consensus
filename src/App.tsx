@@ -36,8 +36,11 @@ function App() {
               const _keywords = await KeywordService().getKeywords(_reviews);
               console.log(_keywords)
               
-              const _cohere = await cohereService.getConfidenceLevels(_filtered_reviews)
+              const _cohere = await cohereService.getConfidenceLevelsIndividual(_filtered_reviews[9])
               console.log(_cohere)
+
+              const _count = KeywordService().countKeywords(_keywords)
+              console.log(_count)
               
 
             }}
