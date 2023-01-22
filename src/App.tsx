@@ -4,12 +4,18 @@ import { BiArrowBack } from 'react-icons/bi';
 import Button from './components/button/Button';
 import ReviewService from './services/ReviewsService';
 import SearchPage from './components/pages/SearchPage';
+import PositivePage from './components/pages/PositivePage';
+import Location from './models/Location';
 
 function App() {
   const reviewService = ReviewService();
   const [currentPage, setCurrentPage] = useState(0);
+  const [selectedLocation, setSelectedLocation] = useState<Location>({title: "", data_id: "", thumbnail: "", address: "", rating: 0, numReviews: 0, website: ""});
 
-  const pages = [<SearchPage />];
+  const pages = [
+    <SearchPage setPageNum={setCurrentPage} setSelectedLocation={setSelectedLocation} />,
+    <PositivePage />
+  ];
 
   return (
     <div className="App">

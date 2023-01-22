@@ -53,14 +53,14 @@ const ReviewService = () => {
               }
           }
           else{
-            let placesAvail = result["local_results"]
-            let tempTitle = placesAvail[0]["title"]
-                let tempData_id = placesAvail[0]["data_id"]
-                let tempAddress = placesAvail[0]["address"]
-                let tempRating = placesAvail[0]["rating"]
-                let tempThumbnail = placesAvail[0]["thumbnail"]
-                let tempWebsite = placesAvail[0]["website"]
-                let tempReviews = placesAvail[0]["reviews"]
+            let placesAvail = result["place_results"]
+            let tempTitle = placesAvail["title"]
+                let tempData_id = placesAvail["data_id"]
+                let tempAddress = placesAvail["address"]
+                let tempRating = placesAvail["rating"]
+                let tempThumbnail = placesAvail["thumbnail"]
+                let tempWebsite = placesAvail["website"]
+                let tempReviews = placesAvail["reviews"]
                 locationList[0] = {
                   title: tempTitle,
                   data_id: tempData_id,
