@@ -1,6 +1,6 @@
 const CohereService = () => {
 
-  const getConfidenceLevels = () => {
+  const getConfidenceLevels = async () => {
     const options = {
       method: 'POST',
       headers: {
@@ -93,10 +93,15 @@ const CohereService = () => {
       
     }
 
-    fetch('https://api.cohere.ai/classify', options)
+    let confidence = await fetch('https://api.cohere.ai/classify', options)
     .then(response => response.json())
-    .then(response => console.log(response["classifications"][0]["confidence"]))
-    .catch(err => console.error(err));
+    .then(
+      function(response){
+        return response["classifications"][0]["confidence"]
+      }
+      )
+    .catch(err => console.error(err)) as number;
+    return confidence;
   };
 
   
