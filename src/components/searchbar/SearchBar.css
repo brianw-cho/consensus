@@ -1,0 +1,21 @@
+.searchbar {
+  display: flex;
+  align-items: center;
+  border: 3px solid white;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: white;
+  transition: border-color;
+  transition-duration: 200ms;
+}
+
+.searchbar input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  margin-left: 5px;
+}
+
+.searchbar:focus-within {
+  border-color: #BD8E83;
+}
