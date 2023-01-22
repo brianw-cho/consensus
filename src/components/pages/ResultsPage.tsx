@@ -9,6 +9,7 @@ interface ResultsPageProps {
 
 const ResultsPage = ({ confidence, count }: ResultsPageProps) => {
   const fontColor = confidence === "Positive" ? "#749EB2" : "#BD8E83"
+  const maxWidth = count[0][1];
   return (
     <div className="results-wrapper">
       <div className="result-description appear-12">
@@ -26,7 +27,8 @@ const ResultsPage = ({ confidence, count }: ResultsPageProps) => {
             key={index}
             className="keyword-bar"
             style={{ 
-              width: `${300 * entry[1]}px`, 
+              maxWidth: "800px",
+              width: `${800 * (entry[1] / maxWidth)}px`, 
               backgroundColor: `${index % 2 == 0 ? "#749EB2" : "#BD8E83"}`
             }}
           >
