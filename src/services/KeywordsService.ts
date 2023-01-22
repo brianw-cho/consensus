@@ -47,7 +47,7 @@ const KeywordsService = () => {
     let finalArray = []
 
     for(let i = 0; i<wordUnique.length; i++){
-        if(wordUnique[i] === "...more" || wordUnique[i] === "average" || wordUnique[i] === "hotel"){
+        if(wordUnique[i] === "...more" || wordUnique[i] === "average" || wordUnique[i] === "hotel" || wordUnique[i] === "place" || wordUnique[i] === "stay"){
             continue;
         }
         if(wordCounts[wordUnique[i]] >= first_count){
