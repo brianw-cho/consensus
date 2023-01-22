@@ -23,40 +23,55 @@ const ReviewService = () => {
       let apiKey_string = '6a461a33a2f5a9b53c15e06349a270bc1df302df4434f9d18e78deda5703eee9'    
   
   
-      //EMPTY REQUEST
-      fetch(`https://serpapi.com/search.json?engine=google_maps&q=${hotel_string}&ll=${ll_string}&type=search&api_key=${apiKey_string}`, {method: 'GET',
-      // mode: 'no-cors',
-      })
-      .then(response => response.json())
-      .then(function(result){})
-      .catch(error => console.log('error', error))
-
+      
       const locationList = await fetch(`https://serpapi.com/search.json?engine=google_maps&q=${hotel_string}&ll=${ll_string}&type=search&api_key=${apiKey_string}`, {method: 'GET',
       // mode: 'no-cors',
       })
       .then(response => response.json())
       .then(function(result){
         let locationList: Array<Location> = [];
-
-          let placesAvail = result["local_results"]
-          for(let i = 0; i<placesAvail.length; i++){
-              let tempTitle = placesAvail[i]["title"]
-              let tempData_id = placesAvail[i]["data_id"]
-              let tempAddress = placesAvail[i]["address"]
-              let tempRating = placesAvail[i]["rating"]
-              let tempThumbnail = placesAvail[i]["thumbnail"]
-              let tempWebsite = placesAvail[i]["website"]
-              let tempReviews = placesAvail[i]["reviews"]
-              locationList[i] = {
-                title: tempTitle,
-                data_id: tempData_id,
-                address: tempAddress,
-                rating: tempRating,
-                thumbnail: tempThumbnail,
-                website: tempWebsite,
-                numReviews: tempReviews
+          console.log(result);
+          if (result["local_results"]) {
+            let placesAvail = result["local_results"]
+            for(let i = 0; i<placesAvail.length; i++){
+                let tempTitle = placesAvail[i]["title"]
+                let tempData_id = placesAvail[i]["data_id"]
+                let tempAddress = placesAvail[i]["address"]
+                let tempRating = placesAvail[i]["rating"]
+                let tempThumbnail = placesAvail[i]["thumbnail"]
+                let tempWebsite = placesAvail[i]["website"]
+                let tempReviews = placesAvail[i]["reviews"]
+                locationList[i] = {
+                  title: tempTitle,
+                  data_id: tempData_id,
+                  address: tempAddress,
+                  rating: tempRating,
+                  thumbnail: tempThumbnail,
+                  website: tempWebsite,
+                  numReviews: tempReviews
+                }
               }
-            }
+          }
+          else{
+            let placesAvail = result["local_results"]
+            let tempTitle = placesAvail[0]["title"]
+                let tempData_id = placesAvail[0]["data_id"]
+                let tempAddress = placesAvail[0]["address"]
+                let tempRating = placesAvail[0]["rating"]
+                let tempThumbnail = placesAvail[0]["thumbnail"]
+                let tempWebsite = placesAvail[0]["website"]
+                let tempReviews = placesAvail[0]["reviews"]
+                locationList[0] = {
+                  title: tempTitle,
+                  data_id: tempData_id,
+                  address: tempAddress,
+                  rating: tempRating,
+                  thumbnail: tempThumbnail,
+                  website: tempWebsite,
+                  numReviews: tempReviews
+                }
+          }
+          
             return locationList;
           })
       .catch(error => console.log('error', error))
