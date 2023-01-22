@@ -27,7 +27,7 @@ function App() {
           <Button 
             onClick={async () => {
 
-              const _locations = await reviewService.getLocation("Ritz-hotel");
+              const _locations = await reviewService.getLocation("West Queen West Hotel Toronto");
               console.log(_locations)
               const _reviews = await reviewService.getReviewsFromID(_locations[0])
 
@@ -36,12 +36,9 @@ function App() {
               const _keywords = await KeywordService().getKeywords(_reviews);
               console.log(_keywords)
               
-              const _cohere = await cohereService.getConfidenceLevelsIndividual(_filtered_reviews[4])
+              const _cohere = await cohereService.getConfidenceLevels(_filtered_reviews)
               console.log(_cohere)
-              const _cohere2 = await cohereService.getConfidenceLevelsIndividual(_filtered_reviews[5])
-              console.log(_cohere2)
-
-            
+              
 
             }}
             child={<BiArrowBack />}
