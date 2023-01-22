@@ -20,7 +20,7 @@ const ReviewService = () => {
     const locList: Location[] = await promise1.then(async function() {
       let zoom = 15.1
       let ll_string = `@${latitude},${longitude},${zoom}z`
-      let apiKey_string = '26062b872cb529eb959d03cbb7228b852f99d067f37ac9bda5dd7fe5de5e49eb'    
+      let apiKey_string = '8ac3491226abfa32da82bbca0b588455e4105df420f643755e4f82fdebf4ea11'    
   
   
       
@@ -85,7 +85,7 @@ const ReviewService = () => {
   const getReviewsFromID = async (locationObj : Location) => {
     let reviews: Array<string> = [];
     let dataID = locationObj.data_id
-    let apiKey_string = '26062b872cb529eb959d03cbb7228b852f99d067f37ac9bda5dd7fe5de5e49eb'    
+    let apiKey_string = '8ac3491226abfa32da82bbca0b588455e4105df420f643755e4f82fdebf4ea11'    
 
     await fetch(`https://serpapi.com/search.json?engine=google_maps_reviews&data_id=${dataID}&sort_by=newestFirst&api_key=${apiKey_string}`, {method: 'GET',
     })
