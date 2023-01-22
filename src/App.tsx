@@ -16,8 +16,10 @@ function App() {
       <div className="bg">
         <div className="header">
           <Button 
-            onClick={() => {
-              const _reviews = reviewService.getReviewsFromID("4");
+            onClick={async () => {
+
+              const _locations = await reviewService.getLocation("Ritz-hotel");
+              console.log(_locations)
             }}
             child={<BiArrowBack />}
             width="30px"
