@@ -26,7 +26,6 @@ const KeywordsService = () => {
     let wordCounts: Record<string, number> = { };
     let wordUnique = [];
     let counter = 0;
-    console.log(allKeywords)
     for(let i = 0; i<10; i++){
         for(let j = 0; j<allKeywords[i].length; j++){
             if(!wordCounts[allKeywords[i][j]]){
@@ -34,7 +33,6 @@ const KeywordsService = () => {
                 counter++
             }
             wordCounts[allKeywords[i][j]] = (wordCounts[allKeywords[i][j]] || 0) + 1;
-            console.log(wordCounts[allKeywords[i][j]])
         }
     }
     
@@ -52,7 +50,6 @@ const KeywordsService = () => {
         if(wordUnique[i] === "...more" || wordUnique[i] === "average" || wordUnique[i] === "hotel"){
             continue;
         }
-        console.log(wordUnique[i])
         if(wordCounts[wordUnique[i]] >= first_count){
             fourth_count = third_count
             fourth_used = third_used

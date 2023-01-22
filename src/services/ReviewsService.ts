@@ -30,7 +30,6 @@ const ReviewService = () => {
       .then(response => response.json())
       .then(function(result){
         let locationList: Array<Location> = [];
-          console.log(result);
           if (result["local_results"]) {
             let placesAvail = result["local_results"]
             for(let i = 0; i<placesAvail.length; i++){
@@ -93,7 +92,6 @@ const ReviewService = () => {
     .then(response => response.json())
     .then(function(result){
       for(let i = 0; i<result["reviews"].length; i++){
-        console.log(result["reviews"][i]["snippet"])
         reviews[i] = result["reviews"][i]["snippet"]
       }
   
